@@ -21,7 +21,7 @@ public class OrderDetail {
     @Column(name="product_id")
     private Long productId;
     @Column(name="quantity")
-    private Long quantity;
+    private Integer quantity;
     @Column(name="price")
     private Double price;
 }

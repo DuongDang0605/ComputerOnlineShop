@@ -22,12 +22,12 @@ public class Order {
     @Column(name="total_price")
     private Double total_price;
     @Column(name="order_code")
-    private Double order_code;
+    private String order_code;
     @Column(name="created_at")
     private LocalDateTime createdAt;
 
-    @Column(name="update_at")
-    private LocalDateTime updateAt;
+    @Column(name="updated_at")
+    private LocalDateTime updatedAt;
 
     @Column(name="created_by")
     private String createdBy;

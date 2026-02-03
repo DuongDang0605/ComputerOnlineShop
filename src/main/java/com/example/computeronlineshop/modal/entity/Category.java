@@ -19,13 +19,13 @@ public class Category {
     private Long id;
     @Column(name="brand_id")
     private Long brandId;
-    @Column(name="compenent_id")
+    @Column(name="component_id")
     private Long componentId;
     @Column(name="created_at")
     private LocalDateTime createdAt;
 
-    @Column(name="update_at")
-    private LocalDateTime updateAt;
+    @Column(name="updated_at")
+    private LocalDateTime updatedAt;
 
     @Column(name="created_by")
     private String createdBy;

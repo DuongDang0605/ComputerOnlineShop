@@ -21,7 +21,7 @@ public class Customer {
     private Long userId;
     @Column(name="full_name")
     private String fullName;
-    @Column(name="phone_number")
+    @Column(name="phone")
     private String phoneNumber;
     @Column(name="address")
     private String address;
@@ -30,8 +30,8 @@ public class Customer {
     @Column(name="created_at")
     private LocalDateTime createdAt;
 
-    @Column(name="update_at")
-    private LocalDateTime updateAt;
+    @Column(name="updated_at")
+    private LocalDateTime updatedAt;
 
     @Column(name="created_by")
     private String createdBy;

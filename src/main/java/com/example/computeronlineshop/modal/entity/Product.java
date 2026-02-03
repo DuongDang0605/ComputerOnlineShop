@@ -23,7 +23,7 @@ public class Product {
     @Column(name = "category_id")
     private Long categoryId;
     @Column(name = "quantity")
-    private Long quantity;
+    private Integer quantity;
     @Column(name = "price")
     private Double price;
     @Column(name = "image")
@@ -31,8 +31,8 @@ public class Product {
     @Column(name="created_at")
     private LocalDateTime createdAt;
 
-    @Column(name="update_at")
-    private LocalDateTime updateAt;
+    @Column(name="updated_at")
+    private LocalDateTime updatedAt;
 
     @Column(name="created_by")
     private String createdBy;

@@ -10,14 +10,13 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
-@Table(name = "users")
+@Table(name = "user")
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
     private Long Id;
 
     @Column(name="user_name")
@@ -32,8 +31,8 @@ public class User {
     @Column(name="created_at")
     private LocalDateTime createdAt;
 
-    @Column(name="update_at")
-    private LocalDateTime updateAt;
+    @Column(name="updated_at")
+    private LocalDateTime updatedAt;
 
     @Column(name="created_by")
     private String createdBy;
@@ -45,7 +44,7 @@ public class User {
     private Long roleId;
 
     @Column(name="status")
-    private String status;
+    private Long status;
 
 
 
