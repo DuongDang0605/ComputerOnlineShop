@@ -12,7 +12,7 @@ CREATE TABLE "role"(
 );
 
 -- changeset quocdk:002
-CREATE TABLE "user" (
+CREATE TABLE "users" (
     id bigserial PRIMARY KEY,
     user_name varchar(255),
     email varchar(255),
@@ -39,7 +39,7 @@ CREATE TABLE "customer"(
     created_by varchar(255),
     updated_by varchar(255),
     status int8,
-    CONSTRAINT fk_customer_user FOREIGN KEY (user_id) REFERENCES "user"(id)
+    CONSTRAINT fk_customer_user FOREIGN KEY (user_id) REFERENCES "users"(id)
 );
 
 -- changeset quocdk:004
@@ -105,7 +105,7 @@ CREATE TABLE "orders"(
     created_by varchar(255),
     updated_by varchar(255),
     status int8,
-    CONSTRAINT fk_order_user FOREIGN KEY (user_id) REFERENCES "user"(id)
+    CONSTRAINT fk_order_user FOREIGN KEY (user_id) REFERENCES "users"(id)
 );
 
 -- changeset quocdk:009
@@ -125,6 +125,6 @@ CREATE TABLE "cart"(
     user_id int8,
     product_id int8,
     quantity int,
-    CONSTRAINT fk_cart_user FOREIGN KEY (user_id) REFERENCES "user"(id),
+    CONSTRAINT fk_cart_user FOREIGN KEY (user_id) REFERENCES "users"(id),
     CONSTRAINT fk_cart_product FOREIGN KEY (product_id) REFERENCES "product"(id)
 );
