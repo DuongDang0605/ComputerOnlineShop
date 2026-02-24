@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
+
 @Entity
 @Table(name="brand")
 @Data
@@ -19,6 +21,9 @@ public class Brand {
     private Long id;
     @Column(name="brand_name")
     private String brandName;
+
+    @OneToMany(mappedBy = "brand")
+    private List<Category> categories;
 
     @Column(name="created_at")
     private LocalDateTime createdAt;
@@ -34,4 +39,5 @@ public class Brand {
 
     @Column(name="status")
     private Long status;
+
 }

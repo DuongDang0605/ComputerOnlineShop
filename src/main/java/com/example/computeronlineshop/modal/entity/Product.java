@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.DynamicUpdate;
 
 import java.time.LocalDateTime;
 
@@ -20,8 +21,9 @@ public class Product {
     private Long id;
     @Column(name = "name")
     private String productName;
-    @Column(name = "category_id")
-    private Long categoryId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private Category category;
     @Column(name = "quantity")
     private Integer quantity;
     @Column(name = "price")
@@ -42,4 +44,6 @@ public class Product {
 
     @Column(name="status")
     private Long status;
+
+
 }

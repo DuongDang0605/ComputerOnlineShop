@@ -16,10 +16,14 @@ public class OrderDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name="order_id")
-    private Long orderId;
-    @Column(name="product_id")
-    private Long productId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="order_id", nullable=false,referencedColumnName = "id")
+    private Order order;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="product_id", nullable=false)
+    private Product product;
+
     @Column(name="quantity")
     private Integer quantity;
     @Column(name="price")
