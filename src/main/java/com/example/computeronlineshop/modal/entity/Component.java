@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
+
 @Entity
 @Table(name="component")
 @Data
@@ -20,6 +22,8 @@ public class Component {
     @Column(name ="component_name")
     private String componentName;
 
+    @OneToMany(mappedBy = "component")
+    private List<Category> categories;
 
     @Column(name="created_at")
     private LocalDateTime createdAt;

@@ -17,8 +17,10 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name="user_id")
-    private Long userId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false,referencedColumnName = "id")
+    private User user;
     @Column(name="total_price")
     private Double total_price;
     @Column(name="order_code")

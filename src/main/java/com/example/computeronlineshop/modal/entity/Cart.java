@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name="cart")
+@Table(name = "cart")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,10 +16,12 @@ public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name="user_id")
-    private Long userId;
-    @Column(name="product_id")
-    private Long productId;
-    @Column(name="quantity")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
+    private User user;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="product_id",referencedColumnName = "id", nullable = false)
+    private Product product;
+    @Column(name = "quantity")
     private Integer quantity;
 }

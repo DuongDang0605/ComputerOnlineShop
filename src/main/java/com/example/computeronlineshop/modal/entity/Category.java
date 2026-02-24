@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
+
 @Entity
 @Table(name="category")
 @Data
@@ -17,10 +19,15 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name="brand_id")
-    private Long brandId;
-    @Column(name="component_id")
-    private Long componentId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="brand_id")
+    private Brand brand;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="component_id")
+    private Component component;
+
     @Column(name="created_at")
     private LocalDateTime createdAt;
 
@@ -35,4 +42,7 @@ public class Category {
 
     @Column(name="status")
     private Long status;
+
+    @OneToMany(mappedBy = "category")
+    private List<Product> products;
 }
