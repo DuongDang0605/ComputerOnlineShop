@@ -1,5 +1,6 @@
 package com.example.computeronlineshop.modal.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,6 +24,7 @@ public class Component {
     private String componentName;
 
     @OneToMany(mappedBy = "component")
+    @JsonIgnore
     private List<Category> categories;
 
     @Column(name="created_at")

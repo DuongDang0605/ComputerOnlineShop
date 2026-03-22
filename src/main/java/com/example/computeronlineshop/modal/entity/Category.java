@@ -1,5 +1,6 @@
 package com.example.computeronlineshop.modal.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,6 +23,7 @@ public class Category {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="brand_id")
+    @JsonIgnore
     private Brand brand;
 
     @ManyToOne(fetch = FetchType.LAZY)
