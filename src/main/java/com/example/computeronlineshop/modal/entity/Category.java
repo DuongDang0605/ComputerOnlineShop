@@ -21,12 +21,11 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="brand_id")
-    @JsonIgnore
     private Brand brand;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="component_id")
     private Component component;
 
@@ -46,5 +45,6 @@ public class Category {
     private Long status;
 
     @OneToMany(mappedBy = "category")
+    @JsonIgnore
     private List<Product> products;
 }

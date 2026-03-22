@@ -13,15 +13,12 @@ import java.util.List;
 public class ProductController {
     @Autowired
     private ProductService productService;
-    @GetMapping("/list")
-    public ResponseEntity<List<Product>> getList(
-            @RequestParam(required = false) String name,
-            @RequestParam(required = false) String brand,
-            @RequestParam(required = false) String type) {
-        return ResponseEntity.ok(productService.searchProducts(name, brand, type));
+   @GetMapping("/list")
+    public ResponseEntity<List<Product>> listProduct(@RequestParam(required = false) String key) {
+        return ResponseEntity.ok(productService.listProducts(key));
     }
     @GetMapping("/{id}")
-    public ResponseEntity<Product> getDetail(@PathVariable Long id) {
+    public ResponseEntity<Product> productDetail(@PathVariable Long id) {
         return ResponseEntity.ok(productService.getProductById(id));
     }
 }
